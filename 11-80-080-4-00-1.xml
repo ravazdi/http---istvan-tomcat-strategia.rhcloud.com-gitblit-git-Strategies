@@ -1,0 +1,327 @@
+<?xml version="1.0"?>
+<strategy>
+  <programName>Forex Strategy Builder</programName>
+  <programVersion>3.0.1.0</programVersion>
+  <strategyName>11-80-080-4-00-1</strategyName>
+  <instrumentSymbol>EURAUD</instrumentSymbol>
+  <instrumentPeriod>100080</instrumentPeriod>
+  <sameDirSignalAction>Nothing</sameDirSignalAction>
+  <oppDirSignalAction>Nothing</oppDirSignalAction>
+  <permanentStopLoss usePermanentSL="True" permanentSLType="Relative">650</permanentStopLoss>
+  <permanentTakeProfit usePermanentTP="True" permanentTPType="Relative">1920</permanentTakeProfit>
+  <breakEven useBreakEven="False">450</breakEven>
+  <maxOpenLots>0.03</maxOpenLots>
+  <useAccountPercentEntry>False</useAccountPercentEntry>
+  <entryLots>0.01</entryLots>
+  <addingLots>0.01</addingLots>
+  <reducingLots>0.01</reducingLots>
+  <useMartingale>False</useMartingale>
+  <martingaleMultiplier>2</martingaleMultiplier>
+  <description>This is an "empty" strategy.
+
+You can use it as a base to build your strategy from scratch.
+
+Feel free to experiment!
+
+You can set the opening and the closing point of the position, add opening or closing logic conditions, and adjust the strategy properties.
+
+The "Opening Point of the Position" slot shows the price, at which the strategy enters the market and adds/removes from an open position. We enter the market at a price level determined by an indicator value or by time ("Bar Opening" for example). However, before we open position we need confirmation from the "Opening Logic Condition" slots.
+
+The "Opening Logic Conditions" basically tell you whether to enter the market or not when the entry price has been reached. They also determine the position's direction (whether we enter short or long). There is no any "Opening Logic Condition" in this strategy and that leads to undetermined entry direction.   Because of that the program doesn’t open positions during the backtest.
+
+The "Closing Point of the Position" sets the exit price. If you set it at "Bar Closing", you can add "Closing Logic Conditions". They will block the exit until at least one of them is fulfilled. If you do not use "Closing Logic Conditions", the position will be closed when the "Closing Point" is reached.
+
+The Strategy Overview explains the strategy logic in an additional window and can be exported to a file.
+
+Look in the forum for help or more information on creating forex strategies.
+
+Remember! The strategy slots describe the long position logic only. Forex Strategy Builder will set the short position logic automatically using the same logic but in the opposite direction.
+
+
+-----------
+Modified by the strategy generator on 2015.02.01. 16:21.
+
+-----------
+Modified by the strategy generator on 2015.02.01. 16:33.
+
+-----------
+Modified by the strategy generator on 2015.02.01. 16:42.
+
+-----------
+Modified by the strategy generator on 2015.02.08. 11:56.</description>
+  <openFilters>5</openFilters>
+  <closeFilters>3</closeFilters>
+  <slot slotNumber="0" slotType="Open" slotStatus="Open">
+    <indicatorName>Bar Opening</indicatorName>
+    <listParam paramNumber="0">
+      <caption>Logic</caption>
+      <index>0</index>
+      <value>Enter the market at the beginning of the bar</value>
+    </listParam>
+    <listParam paramNumber="1">
+      <caption>Base price</caption>
+      <index>0</index>
+      <value>Open</value>
+    </listParam>
+  </slot>
+  <slot slotNumber="1" slotType="OpenFilter" slotStatus="Open" logicalGroup="A">
+    <indicatorName>Divergence</indicatorName>
+    <listParam paramNumber="0">
+      <caption>Logic</caption>
+      <index>4</index>
+      <value>Williams Percent Range divergence</value>
+    </listParam>
+    <listParam paramNumber="1">
+      <caption>Smoothing method</caption>
+      <index>2</index>
+      <value>Exponential</value>
+    </listParam>
+    <listParam paramNumber="2">
+      <caption>Base price</caption>
+      <index>3</index>
+      <value>Close</value>
+    </listParam>
+    <numParam paramNumber="0">
+      <caption>Period</caption>
+      <value>39</value>
+    </numParam>
+    <numParam paramNumber="1">
+      <caption>Smoothing</caption>
+      <value>11</value>
+    </numParam>
+    <numParam paramNumber="6">
+      <caption>Signal Strength</caption>
+      <value>-5</value>
+    </numParam>
+    <numParam paramNumber="7">
+      <caption>Signal Scaling</caption>
+      <value>27</value>
+    </numParam>
+    <checkParam paramNumber="0">
+      <caption>Use previous bar value</caption>
+      <value>True</value>
+    </checkParam>
+  </slot>
+  <slot slotNumber="2" slotType="OpenFilter" slotStatus="Open" logicalGroup="B">
+    <indicatorName>Ta-Lib Candlesticks</indicatorName>
+    <listParam paramNumber="0">
+      <caption>Logic</caption>
+      <index>0</index>
+      <value>Enter long at an Up signal</value>
+    </listParam>
+    <listParam paramNumber="1">
+      <caption>Candlestick pattern type</caption>
+      <index>4</index>
+      <value>Three Outside Up/Down</value>
+    </listParam>
+    <listParam paramNumber="2">
+      <caption>Signal type</caption>
+      <index>1</index>
+      <value>Long - Short</value>
+    </listParam>
+    <numParam paramNumber="1">
+      <caption>PENETRATION</caption>
+      <value>0,0</value>
+    </numParam>
+    <numParam paramNumber="6">
+      <caption>Signal Strength</caption>
+      <value>0</value>
+    </numParam>
+    <numParam paramNumber="7">
+      <caption>Signal Scaling</caption>
+      <value>0</value>
+    </numParam>
+  </slot>
+  <slot slotNumber="3" slotType="OpenFilter" slotStatus="Open" logicalGroup="A">
+    <indicatorName>Fisher Transform</indicatorName>
+    <listParam paramNumber="0">
+      <caption>Logic</caption>
+      <index>2</index>
+      <value>Fisher Transform is higher than the zero line</value>
+    </listParam>
+    <listParam paramNumber="1">
+      <caption>Base price</caption>
+      <index>5</index>
+      <value>Typical</value>
+    </listParam>
+    <numParam paramNumber="0">
+      <caption>Period</caption>
+      <value>17</value>
+    </numParam>
+    <numParam paramNumber="6">
+      <caption>Signal Strength</caption>
+      <value>-8</value>
+    </numParam>
+    <numParam paramNumber="7">
+      <caption>Signal Scaling</caption>
+      <value>77</value>
+    </numParam>
+    <checkParam paramNumber="0">
+      <caption>Use previous bar value</caption>
+      <value>True</value>
+    </checkParam>
+  </slot>
+  <slot slotNumber="4" slotType="OpenFilter" slotStatus="Open" logicalGroup="A">
+    <indicatorName>Top Bottom Price</indicatorName>
+    <listParam paramNumber="0">
+      <caption>Logic</caption>
+      <index>4</index>
+      <value>The position opens below the top price</value>
+    </listParam>
+    <listParam paramNumber="1">
+      <caption>Base price</caption>
+      <index>0</index>
+      <value>High &amp; Low</value>
+    </listParam>
+    <listParam paramNumber="2">
+      <caption>Base period</caption>
+      <index>2</index>
+      <value>Previous week</value>
+    </listParam>
+    <numParam paramNumber="0">
+      <caption>Vertical shift</caption>
+      <value>-858</value>
+    </numParam>
+    <numParam paramNumber="6">
+      <caption>Signal Strength</caption>
+      <value>6</value>
+    </numParam>
+    <numParam paramNumber="7">
+      <caption>Signal Scaling</caption>
+      <value>-45</value>
+    </numParam>
+  </slot>
+  <slot slotNumber="5" slotType="OpenFilter" slotStatus="Open" logicalGroup="A">
+    <indicatorName>Adaptive Stochastics</indicatorName>
+    <listParam paramNumber="0">
+      <caption>Logic</caption>
+      <index>8</index>
+      <value>The %K is higher than the %D</value>
+    </listParam>
+    <listParam paramNumber="1">
+      <caption>Smoothing method</caption>
+      <index>0</index>
+      <value>Simple</value>
+    </listParam>
+    <numParam paramNumber="0">
+      <caption>Min %K period</caption>
+      <value>34</value>
+    </numParam>
+    <numParam paramNumber="1">
+      <caption>Max %K period</caption>
+      <value>198</value>
+    </numParam>
+    <numParam paramNumber="2">
+      <caption>%D period</caption>
+      <value>61</value>
+    </numParam>
+    <numParam paramNumber="4">
+      <caption>Level</caption>
+      <value>20</value>
+    </numParam>
+    <numParam paramNumber="6">
+      <caption>Signal Strength</caption>
+      <value>9</value>
+    </numParam>
+    <numParam paramNumber="7">
+      <caption>Signal Scaling</caption>
+      <value>20</value>
+    </numParam>
+    <checkParam paramNumber="0">
+      <caption>Use previous bar value</caption>
+      <value>True</value>
+    </checkParam>
+  </slot>
+  <slot slotNumber="6" slotType="Close" slotStatus="Open">
+    <indicatorName>Bar Closing</indicatorName>
+    <listParam paramNumber="0">
+      <caption>Logic</caption>
+      <index>0</index>
+      <value>Exit the market at the end of the bar</value>
+    </listParam>
+    <listParam paramNumber="1">
+      <caption>Base price</caption>
+      <index>0</index>
+      <value>Close</value>
+    </listParam>
+  </slot>
+  <slot slotNumber="7" slotType="CloseFilter" slotStatus="Open" logicalGroup="b">
+    <indicatorName>Ta-Lib Candlesticks</indicatorName>
+    <listParam paramNumber="0">
+      <caption>Logic</caption>
+      <index>0</index>
+      <value>Exit long at an Up signal</value>
+    </listParam>
+    <listParam paramNumber="1">
+      <caption>Candlestick pattern type</caption>
+      <index>14</index>
+      <value>Dark Cloud Cover</value>
+    </listParam>
+    <listParam paramNumber="2">
+      <caption>Signal type</caption>
+      <index>1</index>
+      <value>Long - Short</value>
+    </listParam>
+    <numParam paramNumber="1">
+      <caption>PENETRATION</caption>
+      <value>0,0</value>
+    </numParam>
+    <numParam paramNumber="6">
+      <caption>Signal Strength</caption>
+      <value>0</value>
+    </numParam>
+    <numParam paramNumber="7">
+      <caption>Signal Scaling</caption>
+      <value>-2</value>
+    </numParam>
+  </slot>
+  <slot slotNumber="8" slotType="CloseFilter" slotStatus="Open" logicalGroup="c">
+    <indicatorName>Market Facilitation Index</indicatorName>
+    <listParam paramNumber="0">
+      <caption>Logic</caption>
+      <index>3</index>
+      <value>The Market Facilitation Index changes its direction downward</value>
+    </listParam>
+    <numParam paramNumber="6">
+      <caption>Signal Strength</caption>
+      <value>4</value>
+    </numParam>
+    <numParam paramNumber="7">
+      <caption>Signal Scaling</caption>
+      <value>-44</value>
+    </numParam>
+    <checkParam paramNumber="0">
+      <caption>Use previous bar value</caption>
+      <value>False</value>
+    </checkParam>
+  </slot>
+  <slot slotNumber="9" slotType="CloseFilter" slotStatus="Open" logicalGroup="c">
+    <indicatorName>On Balance Volume</indicatorName>
+    <listParam paramNumber="0">
+      <caption>Logic</caption>
+      <index>0</index>
+      <value>The On Balance Volume rises</value>
+    </listParam>
+    <numParam paramNumber="6">
+      <caption>Signal Strength</caption>
+      <value>-10</value>
+    </numParam>
+    <numParam paramNumber="7">
+      <caption>Signal Scaling</caption>
+      <value>69</value>
+    </numParam>
+    <checkParam paramNumber="0">
+      <caption>Use previous bar value</caption>
+      <value>False</value>
+    </checkParam>
+  </slot>
+  <AccountBalance>2232,21 USD</AccountBalance>
+  <ProfitPerDay>0,72 USD</ProfitPerDay>
+  <WinLossRatio>0,47</WinLossRatio>
+  <AccountStatsParam>Proba;Ambiguous bars;Max Consecutive Losses;Average loss;Max days to higher balance;Max equity drawdown (%);Profit factor;Payoff ratio;Profit per year (%);Score;Score of all years;Tested years;Total trades;Trades per year;Win/loss ratio;Winning trades;Losing trades;Profit per day;Tested bars;Maximum drawdown;Initial account;Account balance;Minimum account;Maximum account;Max equity drawdown;Gross profit;Gross loss;Sent orders;Executed orders;Traded lots;Time in position;Charged spread;Charged rollover;Charged commission;Charged slippage;Total charges;Balance without charges;Account exchange rate;Intrabar scanning;Interpolation method</AccountStatsParam>
+  <AccountStatsValue>137;31;9;-7 USD;235;7,18 %;2,10;2,37;26,27 %;192;176;4.69;618;131;0,47;290;328;0,72 USD;2541;71,78 USD;1000,00 USD;2232,21 USD;1000,00 USD;2237,14 USD;71,78 USD;4711,72 USD;-2247,30 USD;3005;618;6,18;47 %;247,20 USD;23,56 USD;0,00 USD;0,00 USD;270,76 USD;2502,97 USD;1,0000;Not accomplished;Pessimistic</AccountStatsValue>
+  <MarketStatsParam>Symbol;Period;Number of bars;Date of updating;Time of updating;Date of beginning;Time of beginning;Minimum price;Maximum price;Average Gap;Maximum Gap;Average High-Low;Maximum High-Low;Average Close-Open;Maximum Close-Open;Maximum days off;Maximum data bars;No data older than;No data newer than;Fill In Data Gaps;Cut Off Bad Data</MarketStatsParam>
+  <MarketStatsValue>EURAUD;range80;2794;15.01.27;13:36;10.01.07;23:59;1.16069;1.59565;23 points;1493 points;799 points;800 points;522 points;800 points;6;200000;2010.01.07.;No limits;Switched off;Switched off</MarketStatsValue>
+  <BalanceLine>1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1004;1019;1019;1022;1038;1038;1041;1056;1056;1056;1056;1056;1060;1077;1069;1075;1075;1077;1077;1083;1087;1095;1106;1106;1106;1106;1106;1106;1099;1091;1076;1072;1066;1080;1083;1078;1077;1080;1095;1095;1094;1096;1106;1100;1104;1119;1119;1127;1145;1157;1172;1171;1168;1168;1168;1172;1192;1200;1212;1215;1231;1231;1238;1249;1257;1268;1268;1271;1271;1271;1265;1258;1258;1252;1251;1242;1237;1237;1237;1234;1235;1242;1236;1235;1229;1228;1239;1244;1243;1256;1251;1251;1251;1258;1270;1270;1265;1263;1263;1259;1255;1256;1265;1261;1261;1274;1280;1280;1280;1292;1289;1285;1285;1285;1285;1285;1289;1304;1304;1304;1299;1304;1315;1328;1338;1361;1376;1392;1390;1388;1402;1400;1399;1393;1393;1403;1412;1412;1412;1412;1423;1431;1427;1431;1441;1436;1436;1431;1429;1436;1447;1446;1436;1441;1463;1480;1480;1477;1492;1495;1489;1505;1508;1508;1508;1511;1526;1530;1545;1545;1545;1541;1538;1553;1570;1574;1563;1577;1593;1599;1599;1599;1599;1599;1599;1594;1586;1573;1565;1576;1595;1602;1606;1616;1614;1614;1614;1614;1614;1612;1602;1600;1596;1593;1593;1593;1593;1597;1595;1593;1588;1595;1606;1606;1618;1625;1623;1618;1618;1615;1611;1622;1630;1630;1620;1610;1609;1606;1610;1616;1615;1621;1624;1636;1633;1633;1633;1624;1619;1630;1628;1624;1624;1624;1624;1620;1617;1617;1621;1636;1637;1648;1656;1660;1675;1675;1675;1675;1675;1674;1668;1669;1676;1691;1691;1695;1710;1704;1703;1697;1696;1690;1676;1686;1694;1705;1712;1712;1710;1705;1705;1705;1717;1719;1717;1713;1710;1707;1703;1703;1698;1689;1681;1676;1670;1669;1669;1669;1669;1665;1662;1671;1692;1696;1692;1692;1692;1691;1681;1682;1697;1697;1696;1684;1692;1702;1703;1703;1703;1703;1703;1718;1722;1737;1741;1748;1759;1759;1753;1752;1752;1755;1771;1767;1758;1757;1764;1776;1773;1768;1763;1775;1785;1790;1808;1824;1827;1840;1836;1847;1851;1843;1839;1833;1837;1852;1852;1852;1863;1871;1871;1871;1871;1886;1889;1887;1878;1876;1876;1877;1866;1853;1855;1855;1855;1855;1851;1845;1837;1846;1853;1851;1851;1851;1851;1851;1851;1854;1859;1874;1874;1874;1874;1888;1886;1896;1898;1913;1916;1911;1921;1928;1928;1932;1936;1936;1936;1940;1955;1955;1955;1949;1948;1955;1969;1984;1984;1984;1999;2003;2003;2003;2003;1997;1996;1999;2015;2015;2011;2008;2008;2008;2008;2003;2001;1995;1994;1994;1994;1994;1994;1994;1994;2001;2013;2013;2022;2031;2031;2039;2050;2050;2050;2050;2053;2066;2066;2066;2074;2085;2085;2097;2097;2094;2092;2097;2111;2108;2098;2097;2112;2111;2109;2100;2095;2095;2095;2095;2095;2101;2101;2113;2113;2113;2109;2103;2096;2092;2092;2092;2103;2111;2111;2111;2126;2130;2130;2126;2123;2123;2117;2109;2109;2116;2127;2127;2127;2127;2142;2146;2146;2146;2146;2146;2146;2146;2142;2139;2137;2132;2136;2151;2150;2144;2136;2130;2130;2146;2149;2145;2136;2135;2135;2135;2135;2135;2135;2134;2128;2128</BalanceLine>
+  <EquityLine>1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1000;1011;1019;1019;1026;1038;1039;1049;1056;1056;1056;1056;1058;1069;1075;1075;1080;1079;1077;1078;1085;1088;1100;1106;1106;1106;1106;1106;1106;1098;1091;1077;1069;1072;1083;1082;1077;1077;1086;1095;1095;1094;1099;1105;1104;1113;1119;1124;1134;1152;1161;1175;1170;1168;1168;1171;1177;1196;1206;1212;1220;1231;1232;1243;1250;1264;1268;1270;1271;1275;1276;1264;1259;1259;1251;1250;1240;1243;1238;1242;1234;1241;1241;1235;1236;1229;1229;1243;1242;1247;1256;1251;1253;1258;1264;1270;1270;1265;1263;1263;1259;1253;1261;1265;1261;1262;1277;1280;1280;1284;1294;1289;1285;1285;1285;1285;1291;1297;1304;1304;1304;1298;1311;1323;1330;1346;1371;1383;1394;1390;1396;1406;1400;1398;1393;1393;1406;1412;1418;1418;1418;1427;1431;1427;1437;1443;1436;1436;1432;1434;1442;1447;1445;1440;1450;1470;1484;1479;1483;1496;1495;1496;1508;1508;1508;1508;1515;1530;1542;1545;1545;1545;1543;1549;1558;1573;1574;1569;1583;1598;1599;1599;1599;1599;1599;1599;1593;1585;1573;1571;1582;1600;1604;1614;1616;1614;1614;1614;1614;1614;1610;1601;1600;1596;1593;1593;1593;1595;1596;1595;1592;1591;1601;1609;1610;1623;1631;1625;1618;1618;1615;1614;1628;1630;1629;1618;1610;1611;1606;1615;1617;1616;1627;1636;1637;1633;1633;1633;1625;1627;1632;1627;1624;1624;1624;1624;1620;1620;1623;1629;1638;1642;1654;1656;1663;1675;1675;1675;1675;1675;1674;1668;1672;1681;1691;1691;1701;1709;1704;1705;1701;1699;1690;1682;1692;1694;1710;1712;1715;1711;1705;1705;1710;1723;1723;1727;1714;1710;1707;1703;1703;1696;1689;1681;1677;1670;1669;1669;1669;1669;1665;1668;1681;1697;1695;1692;1692;1692;1690;1683;1691;1697;1697;1695;1686;1699;1704;1703;1703;1706;1707;1710;1721;1732;1742;1743;1754;1759;1759;1753;1752;1752;1759;1771;1764;1757;1758;1769;1778;1772;1767;1766;1779;1783;1796;1813;1828;1838;1840;1842;1851;1851;1844;1842;1834;1843;1852;1852;1855;1868;1871;1871;1872;1879;1889;1889;1887;1877;1876;1876;1879;1864;1854;1855;1855;1855;1857;1849;1845;1839;1855;1860;1851;1851;1851;1851;1853;1858;1857;1866;1875;1884;1884;1885;1891;1892;1902;1906;1916;1915;1915;1926;1927;1936;1936;1936;1936;1936;1944;1955;1955;1955;1952;1952;1961;1977;1984;1984;1990;2003;2003;2003;2002;2004;1996;1996;2002;2016;2016;2010;2008;2008;2008;2007;2001;1999;1994;1994;1994;1994;1994;1994;1994;1995;2008;2013;2014;2028;2031;2031;2043;2050;2050;2050;2050;2056;2066;2066;2070;2080;2087;2094;2101;2098;2097;2093;2101;2111;2106;2097;2102;2115;2111;2111;2099;2095;2095;2099;2104;2100;2101;2103;2113;2113;2113;2109;2103;2096;2094;2099;2100;2108;2116;2116;2118;2129;2130;2130;2124;2123;2123;2116;2109;2113;2123;2127;2127;2134;2138;2146;2146;2146;2146;2146;2146;2151;2158;2143;2139;2136;2135;2142;2151;2150;2143;2134;2130;2136;2148;2149;2145;2136;2135;2135;2135;2135;2135;2135;2133;2128;2127</EquityLine>
+</strategy>
